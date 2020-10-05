@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const passport = require('passport');
-const cookieSession = require('cookie-session')
 require('./passport-setup');
 var mongoose = require("mongoose");
 const router = express.Router();
@@ -14,7 +13,7 @@ module.exports.cbFromGoogle = function(req, res) {
 }
 
 
-app.get('/logout', (req, res) => {
+module.exports.logout=(req, res) => {
   req.session = null;
   res.send("Successful");
-})
+}
